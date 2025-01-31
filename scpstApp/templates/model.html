@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCPST</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+
+  <h1>SCPST</h1>
+
+  <!-- Container to hold both the image and the canvas -->
+  <div class="container">
+    <!-- Original image -->
+    <img id="license-plate-image" src="{{image}}" alt="License Plate Image">
+    <p id="model-path">{{url_for('static', filename='model/model.json')}}</p>
+    <!-- Canvas to display the cropped license plate -->
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- Load TensorFlow.js and AutoML -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-automl@1.3.0/dist/tf-automl.min.js"></script>
+  <script src="{{url_for('static', filename='model.js')}}"></script>
+
+</body>
+</html>
